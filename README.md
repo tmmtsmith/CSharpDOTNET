@@ -1,4 +1,4 @@
 CSharpDOTNET
 ============
 
-Various C# projects or C# tools
+This contains various code for C# tools - these are not complete projects, but they will listed the assemblies needed.
