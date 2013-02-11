@@ -67,8 +67,6 @@ hr {
 	display: none;
 }
 
-/** WRAPPER */
-
 #wrapper {
 	overflow: hidden;
 	width: 1200px;
@@ -86,7 +84,6 @@ hr {
 	clear: both;
 }
 
-/** HEADER */
 
 #header {
 	overflow: hidden;
@@ -94,14 +91,11 @@ hr {
 	background: url(images/img01.jpg) repeat-x left top;
 }
 
-/* Logo */
-
 #logo
 {
 	float: left;
 	width: 350px;
 	padding: 30px 0px 0px 50px;
-	text-transform: uppercase;
 }
 
 #logo h1
@@ -131,8 +125,6 @@ hr {
 {
 	color: #FFFFFF;
 }
-
-/* Menu */
 
 #menu
 {
@@ -176,8 +168,6 @@ hr {
 	color: #FFFFFF;
 }
 
-/** PAGE */
-
 #page {
 	overflow: hidden;
 	width: 1100px;
@@ -189,21 +179,15 @@ hr {
 #page h2 {
 }
 
-/** CONTENT */
-
 #content {
 	float: right;
 	width: 750px;
 }
 
-/** SIDEBAR */
-
 #sidebar {
 	float: left;
 	width: 300px;
 }
-
-/* Footer */
 
 #footer {
 	overflow: hidden;
@@ -220,8 +204,6 @@ hr {
 #footer a {
 	color: #545454;
 }
-
-/* Three Column */
 
 #three-column {
 	overflow: hidden;
@@ -244,8 +226,6 @@ hr {
 	float: right;
 	width: 300px;
 }
-
-/* List Style 1 */
 
 ul.style1 {
 	margin: 0px;
@@ -271,9 +251,6 @@ ul.style1 .first {
 	padding-top: 0px;
 	border-top: none;
 }
-
-
-/* List style 2 */
 
 ul.style2 {
 	margin: 0px;
@@ -308,8 +285,6 @@ ul.style2 a {
 ul.style2 a:hover {
 	text-decoration: underline;
 }
-
-/* Button Style 1 */
 
 .button-style {
 	display: inline-block;
