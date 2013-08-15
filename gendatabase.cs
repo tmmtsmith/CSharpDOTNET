@@ -40,7 +40,7 @@ namespace ExportProcs
         public static SqlConnection Connect()
         {
             SqlConnection scon = new SqlConnection();
-            scon.ConnectionString = "integrated security=SSPI;data source=SAMSUNG-PC\\SQLEXPRESS;persist security info=False;initial catalog=AdminExamples";
+            scon.ConnectionString = "integrated security=SSPI;data source=SERVER\\INSTANCE;persist security info=False;initial catalog=AdminExamples";
             scon.Open();
             return scon;
         }
