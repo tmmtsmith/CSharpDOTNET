@@ -15,7 +15,7 @@ namespace FileChecker
             int x = 0;
             while (x < 1)
             {
-                string fileP = @"E:\Check\mo.csv";
+                string fileP = @"E:\Check\file.csv";
                 if (File.Exists(fileP))
                 {
                     x = 1;
