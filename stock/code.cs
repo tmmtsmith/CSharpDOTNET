@@ -15,17 +15,21 @@ namespace FileChecker
             int x = 0;
             while (x < 1)
             {
-                string fileP = @"E:\Check\file.csv";
-                if (File.Exists(fileP))
+                string srcPath = @"E:\Check\";
+                string srcFile = "test.csv";
+                string srcT = srcPath + srcFile;
+                string archivePath = @"E:\Check\Archive\";
+                if (File.Exists(srcT))
                 {
                     x = 1;
                     Console.WriteLine("File found!  Now inserting the data");
                     using (var scon = Utilities.Connect())
                     {
-                        SqlCommand bi = new SqlCommand("EXECUTE stp_InsertMOData");
+                        SqlCommand bi = new SqlCommand("EXECUTE stp_InsertMOData", scon);
                         bi.ExecuteNonQuery();
                         scon.Close();
                     }
+                    File.Move(srcT, archivePath + srcFile);
                     Console.WriteLine("Data inserted.");
                 }
                 else
