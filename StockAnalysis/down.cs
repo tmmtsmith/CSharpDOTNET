@@ -28,6 +28,10 @@ namespace DSt
             {
                 DATAPATH;
             }
+            
+            string oldFile = "C:\\Import\\table.csv";
+            string newFile = "C:\\Import\\" + sym + ".csv";
+            File.Move(oldFile, newFile);
         }
     }
 }
