@@ -49,12 +49,29 @@ namespace DSt
 
             if (x == 1)
             {
-                DATAPATH;
+                    DATAPATH;
+                    Console.WriteLine("Retrieving data path.");
+                    string oldFile = "C:\\Location\\table.csv";
+                    string newFile = "C:\\Location\\" + sym + ".csv";
+
+                    int y = 0;
+                    while (y < 1)
+                    {
+                        if (File.Exists(oldFile))
+                        {
+                            File.Move(oldFile, newFile);
+                            y = 1;
+                        }
+                        else
+                        {
+                            y = 0;
+                        }
+                    }
+                    string import = "E:\\Location\\Import\\";
+                    File.Move(newFile, import + sym + ".csv");
+                    Console.WriteLine("Preliminary work on file completed.");
             }
             
-            string oldFile = "C:\\Import\\table.csv";
-            string newFile = "C:\\Import\\" + sym + ".csv";
-            File.Move(oldFile, newFile);
         }
     }
 }
