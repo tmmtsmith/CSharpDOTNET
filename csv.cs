@@ -18,7 +18,6 @@ namespace TestTextReaders
             while (!csvG.EndOfData)
             {
                 string[] fields = csvG.ReadFields();
-                string row = csvG.ReadLine();
                 foreach (string field in fields)
                 {
                     Console.WriteLine(field);
