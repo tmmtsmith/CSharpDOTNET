@@ -27,4 +27,29 @@ namespace TestTextReaders
             Console.ReadLine();
         }
     }
+    
+    //Other approach
+    
+    class Program
+    {
+        static void Main()
+        {
+            using (TextFieldParser parser = new TextFieldParser(@"E:\Stocks\Archive\AAPL.csv"))
+            {
+                parser.Delimiters = new string[] { "," };
+                while (true)
+                {
+                    string[] columns = parser.ReadFields();
+                    if (columns == null)
+                    {
+                        break;
+                    }
+                    //Console.WriteLine("{0} field(s)", parts.Length);
+                    var date = new List<string>();;
+                    Console.WriteLine("{0}  {1}  {2}  {3}  {4}  {5}  {6}", columns);
+                }
+                Console.ReadLine();
+            }
+        }
+    }
 }
