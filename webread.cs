@@ -39,8 +39,8 @@ namespace TestTextReaders
     {
         public static SqlConnection Connect()
         {
-            string server = "SAMSUNG-PC\\SQLEXPRESS";
-            string database = "TestDatabase";
+            string server = "OURSERVER";
+            string database = "OURDATABASE";
             SqlConnection scon = new SqlConnection();
             scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + "";
             scon.Open();
