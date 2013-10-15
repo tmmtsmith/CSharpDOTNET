@@ -8,6 +8,6 @@ To run this program:
   1.  Create a new C# console application program.
   2.  Copy and paste the code into the application.
   3.  Add the necessary assemblies based on the references in this application.
-  4.  Create your TEMP and MAIN tables in SQL Server (not provided, as these should be tables you customize).
+  4.  Create your TEMP and MAIN tables in SQL Server (only TEMP provided, as you should customize MAIN to what you need).
   5.  Adjust the stp_InsertTraceData stored procedure to capture the data you want.
   6.  Run the program.
