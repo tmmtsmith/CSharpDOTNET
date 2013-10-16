@@ -37,7 +37,14 @@ namespace SqlJobs
 
                     foreach (string sp in sc2)
                     {
-                        Console.WriteLine(sp);
+                        Console.WriteLine("Migrating procedure " + stp.Name + "... ");
+                        using (var scon = Connections.Connect())
+                        {
+                            SqlCommand runit = new SqlCommand(sp, scon);
+                            runit.ExecuteNonQuery();
+                            runit.Dispose();
+                            scon.Close();
+                        }
                     }
 
                     Console.WriteLine("\n");
@@ -45,6 +52,19 @@ namespace SqlJobs
                 }
             }
 
+        }
+    }
+    
+    public static class Connections
+    {
+        public static SqlConnection Connect()
+        {
+            string server = "SERVER";
+            string database = "OTHERDB";
+            SqlConnection scon = new SqlConnection();
+            scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + "";
+            scon.Open();
+            return scon;
         }
     }
 }
