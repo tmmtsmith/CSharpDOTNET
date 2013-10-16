@@ -25,7 +25,8 @@ namespace SqlJobs
             Database db = srv.Databases["DB"];
 
             Scripter stpsc = new Scripter(srv);
-            stpsc.Options.WithDependencies = true;
+            // This option will script the tables with the procedures
+            stpsc.Options.WithDependencies = false;
 
             foreach (StoredProcedure stp in db.StoredProcedures)
             {
