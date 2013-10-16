@@ -21,8 +21,8 @@ namespace SqlJobs
     {
         static void Main(string[] args)
         {
-            Server srv = new Server(@"NDB0825PDV");
-            Database db = srv.Databases["ATCode"];
+            Server srv = new Server(@"SERVER");
+            Database db = srv.Databases["DB"];
 
             Scripter stpsc = new Scripter(srv);
             stpsc.Options.WithDependencies = true;
