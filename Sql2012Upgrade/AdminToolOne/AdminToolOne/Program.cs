@@ -16,7 +16,7 @@ namespace AdminToolOne
         static void Main(string[] args)
         {
 
-            Server srv = new Server(@"SAMSUNG-PC\SQLEXPRESS");
+            Server srv = new Server(@"SERVER");
             string dbName = "TestDatabase";
             string delete = "Archive";
             Database db = srv.Databases[dbName];
@@ -61,7 +61,7 @@ namespace AdminToolOne
     {
         public static SqlConnection Connect()
         {
-            string server = "SAMSUNG-PC\\SQLEXPRESS";
+            string server = "SERVER";
             string database = "Archive";
             SqlConnection scon = new SqlConnection();
             scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + "";
