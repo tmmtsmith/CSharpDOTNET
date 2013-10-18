@@ -114,3 +114,9 @@ FROM sys.columns
 WHERE OBJECT_NAME(object_id) = 'NewerTable'
 
 */
+
+-- Basis
+
+"INSERT INTO " + + "
+SELECT *
+FROM " +
