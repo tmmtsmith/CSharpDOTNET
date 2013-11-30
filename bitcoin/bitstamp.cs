@@ -32,7 +32,7 @@ namespace BitCoin
                         scon.Close();
                     }
 
-                    Console.WriteLine("Bitcoin data imported." + "\n");
+                    Console.WriteLine("\t Bitcoin data imported.");
                     //y++;
                 }
             }
