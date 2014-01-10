@@ -23,16 +23,17 @@ namespace CountLines
             {
                 count = line.Split('|').Length - 1;
                 string data = "Line: " + cnt.ToString() + "; | number: " + count.ToString();
+                // Change column number here
                 if (count != 37)
                 {
-                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\SSISFailures.txt"))
+                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\Failures.txt"))
                     {
                         write.WriteLine(data);
                     }
                 }
                 else
                 {
-                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\SSISCorrectColumns.txt"))
+                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\Correct.txt"))
                     {
                         write.WriteLine(data);
                     }
