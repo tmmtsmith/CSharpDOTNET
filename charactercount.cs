@@ -12,6 +12,16 @@ namespace CountLines
         static void Main(string[] args)
         {
             var file = @"C:\Users\Public\FileInfo\file.txt";
+            string failures = @"C:\Users\Public\FileInfo\Failures.txt";
+            string correct = @"C:\Users\Public\FileInfo\Correct.txt";
+            
+            // if (File.Exists(failures) && File.Exists(correct))
+            //{
+                //File.Delete(failures);
+                //File.Delete(correct);
+                //File.Create(failures);
+                //File.Create(correct);
+            //}
 
             int cnt = 0;
             string line;
@@ -26,14 +36,14 @@ namespace CountLines
                 // Change column number here
                 if (count != 37)
                 {
-                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\Failures.txt"))
+                    using (StreamWriter write = File.AppendText(failures))
                     {
                         write.WriteLine(data);
                     }
                 }
                 else
                 {
-                    using (StreamWriter write = File.AppendText(@"C:\Users\Public\FileInfo\Correct.txt"))
+                    using (StreamWriter write = File.AppendText(correct))
                     {
                         write.WriteLine(data);
                     }
