@@ -33,6 +33,8 @@ long mb = (f.Length / 1048576);
 DateTime now = DateTime.Now;
 DateTime last = File.GetLastWriteTime(Convert.ToString(f));
 double mins = (now - last).TotalMinutes;
+// 1: if file over a certain size
+// 2: if file last write time over certain time
 
 
 */
