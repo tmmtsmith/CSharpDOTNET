@@ -46,9 +46,11 @@ namespace TraceImport
 
                 using (var scon = Connections.Connect())
                 {
+                    scon.Open();
                     SqlCommand traceInsert = new SqlCommand("INSERT INTO " + temp + " SELECT * FROM ::fn_trace_gettable('" + folderOne + newLoc + "', default)", scon);
                     traceInsert.ExecuteNonQuery();
                     scon.Close();
+                    //scon.Dispose();
                 }
 
                 Console.WriteLine("Deleting file ... ");
@@ -59,20 +61,24 @@ namespace TraceImport
 
                 using (var scon = Connections.Connect())
                 {
+                    scon.Open();
                     SqlCommand moveData = new SqlCommand("stp_InsertTraceData @t,@m", scon);
                     moveData.Parameters.AddWithValue("@t", temp);
                     moveData.Parameters.AddWithValue("@m", main);
                     moveData.ExecuteNonQuery();
                     scon.Close();
+                    //scon.Dispose();
                 }
 
                 Console.WriteLine("Cleaning temp table for next file ... ");
 
                 using (var scon = Connections.Connect())
                 {
+                    scon.Open();
                     SqlCommand clean = new SqlCommand("TRUNCATE TABLE " + temp, scon);
                     clean.ExecuteNonQuery();
                     scon.Close();
+                    //scon.Dispose();
                 }
 
                 Console.WriteLine("Data from trace file added and trace file deleted.");
@@ -90,8 +96,7 @@ namespace TraceImport
             string server = "SERVER";
             string database = "DATABASE";
             SqlConnection scon = new SqlConnection();
-            scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + "";
-            scon.Open();
+            scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + ";Connect Timeout=90";
             return scon;
         }
     }
