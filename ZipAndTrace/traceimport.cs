@@ -95,7 +95,7 @@ namespace TraceImport
             string server = "SERVER";
             string database = "DATABASE";
             SqlConnection scon = new SqlConnection();
-            scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + ";Connection Timeout=0";
+            scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + ";Connection Timeout=90";
             return scon;
         }
     }
