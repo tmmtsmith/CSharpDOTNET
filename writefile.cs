@@ -18,3 +18,32 @@ public static string Array(string a)
   string f = Regex.Replace(e, "[a-z]", "");
   return f;
 }
+
+
+/*
+// Read EX
+            string ln;
+            int cnt = 0;
+            string[] chk = { "fear", "dogs" };
+            string fle = @"C:\Files\file.txt";
+
+            StreamReader sr = new StreamReader(fle);
+
+            while ((ln = sr.ReadLine()) != null)
+            {
+                if (chk.Any(ln.Contains))
+                {
+                    Console.WriteLine("Containing One: " + "\t" + ln);
+                }
+
+                if (chk.All(s => ln.Contains(s)))
+                {
+                    Console.WriteLine("Containing Both: " + "\t" + ln);
+                }
+
+                cnt++;
+            }
+            Console.WriteLine("\n" + "\t" + "File read.");
+            Console.ReadLine();
+
+*/
