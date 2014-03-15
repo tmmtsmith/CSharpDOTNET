@@ -1,3 +1,27 @@
+    public static class Connections
+    {
+        public static SqlConnection Connect()
+        {
+            SqlConnection scon = new SqlConnection(@"integrated security=SSPI;data source=SERVER\INSTANCE;persist security info=False;initial catalog=DATABASE");
+            scon.Open();
+            return scon;
+        }
+
+        public static string GetFiles(string src, string dest)
+        {
+            try
+            {
+                WebClient getFile = new WebClient();
+                getFile.DownloadFile(src, dest);
+                return "Success";
+            }
+            catch
+            {
+                return "Failure";
+            }
+        }
+    }
+
 public static class SQLTools
 {
     public static AddData(string query)
