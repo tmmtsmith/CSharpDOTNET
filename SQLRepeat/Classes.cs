@@ -63,117 +63,73 @@ public static class SQLTools
 
 public static class StringDate
 {
-    public static string GetYYYYMMDDMMStringDate()
+    public static string GetYYYYMMDDStringDate()
     {
         DateTime now = DateTime.Now;
 
+        string y, m, d;
+        y = now.Year.ToString();
+
+        // Month
         if (now.Month.ToString().Length == 1)
         {
-            string moString = "0" + now.Month.ToString();
-
-            if (now.Day.ToString().Length == 1)
-            {
-                string dayString = "0" + now.Day.ToString();
-                
-                if (now.Minute.ToString().Length == 1)
-                {
-                    string miString = "0" + now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-                else
-                {
-                    string miString = now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-            }
-            else
-            {
-                string dayString = now.Day.ToString();
-                
-                if (now.Minute.ToString().Length == 1)
-                {
-                    string miString = "0" + now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-                else
-                {
-                    string miString = now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-            }
+            m = "0" + now.Month.ToString();
         }
         else
         {
-            string moString = now.Month.ToString();
-
-            if (now.Day.ToString().Length == 1)
-            {
-                string dayString = "0" + now.Day.ToString();
-                
-                if (now.Minute.ToString().Length == 1)
-                {
-                    string miString = "0" + now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-                else
-                {
-                    string miString = now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-            }
-            else
-            {
-                string dayString = now.Day.ToString();
-                
-                if (now.Minute.ToString().Length == 1)
-                {
-                    string miString = "0" + now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-                else
-                {
-                    string miString = now.Minute.ToString();
-                    return now.Year.ToString() + moString + dayString + miString;
-                }
-            }
+            m = now.Month.ToString();
         }
+
+        // Day
+        if (now.Day.ToString().Length == 1)
+        {
+            d = "0" + now.Day.ToString();
+        }
+        else
+        {
+            d = now.Day.ToString();
+        }
+
+        return y + m + d;
 
     }
-    
-        public static string GetYYYYMMDDStringDate()
+
+    public static string GetYYYYMMDDHHMMSSStringDate()
     {
         DateTime now = DateTime.Now;
+        string yyyymmmdd = StringDate.GetYYYYMMDDStringDate();
+        string h, m, s;
 
-        if (now.Month.ToString().Length == 1)
+        // Hour
+        if (now.Hour.ToString().Length == 1)
         {
-            string moString = "0" + now.Month.ToString();
-
-            if (now.Day.ToString().Length == 1)
-            {
-                string dayString = "0" + now.Day.ToString();
-                return now.Year.ToString() + moString + dayString;
-            }
-            else
-            {
-                string dayString = now.Day.ToString();
-                return now.Year.ToString() + moString + dayString;
-            }
+            h = "0" + now.Hour.ToString();
         }
         else
         {
-            string moString = now.Month.ToString();
-
-            if (now.Day.ToString().Length == 1)
-            {
-                string dayString = "0" + now.Day.ToString();
-                return now.Year.ToString() + moString + dayString;
-            }
-            else
-            {
-                string dayString = now.Day.ToString();
-                return now.Year.ToString() + moString + dayString;
-            }
+            h = now.Hour.ToString();
         }
 
+        // Minute
+        if (now.Minute.ToString().Length == 1)
+        {
+            m = "0" + now.Minute.ToString();
+        }
+        else
+        {
+            m = now.Minute.ToString();
+        }
+
+        // Second
+        if (now.Second.ToString().Length == 1)
+        {
+            s = "0" + now.Second.ToString();
+        }
+        else
+        {
+            s = now.Second.ToString();
+        }
+
+        return yyyymmmdd + h + m + s;
     }
 }
