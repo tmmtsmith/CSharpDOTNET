@@ -66,28 +66,20 @@ public static class StringDate
     public static string GetYYYYMMDDStringDate()
     {
         DateTime now = DateTime.Now;
-
-        string y, m, d;
-        y = now.Year.ToString();
+        string y = now.Year.ToString();
+        string m = now.Month.ToString();
+        string d = now.Day.ToString();
 
         // Month
-        if (now.Month.ToString().Length == 1)
+        if (m.Length == 1)
         {
-            m = "0" + now.Month.ToString();
-        }
-        else
-        {
-            m = now.Month.ToString();
+            m = "0" + m;
         }
 
         // Day
-        if (now.Day.ToString().Length == 1)
+        if (d.Length == 1)
         {
-            d = "0" + now.Day.ToString();
-        }
-        else
-        {
-            d = now.Day.ToString();
+            d = "0" + d;
         }
 
         return y + m + d;
@@ -98,36 +90,26 @@ public static class StringDate
     {
         DateTime now = DateTime.Now;
         string yyyymmmdd = StringDate.GetYYYYMMDDStringDate();
-        string h, m, s;
+        string h = now.Hour.ToString();
+        string m = now.Minute.ToString();
+        string s = now.Second.ToString();
 
         // Hour
-        if (now.Hour.ToString().Length == 1)
+        if (h.Length == 1)
         {
-            h = "0" + now.Hour.ToString();
-        }
-        else
-        {
-            h = now.Hour.ToString();
+            h = "0" + h;
         }
 
         // Minute
-        if (now.Minute.ToString().Length == 1)
+        if (m.Length == 1)
         {
-            m = "0" + now.Minute.ToString();
-        }
-        else
-        {
-            m = now.Minute.ToString();
+            m = "0" + m;
         }
 
         // Second
-        if (now.Second.ToString().Length == 1)
+        if (s.Length == 1)
         {
-            s = "0" + now.Second.ToString();
-        }
-        else
-        {
-            s = now.Second.ToString();
+            s = "0" + s;
         }
 
         return yyyymmmdd + h + m + s;
