@@ -39,22 +39,18 @@ public static class SQLTools
         return 1;
     }
 
-    public static DataGridView ReturnGridView(DataGridView dG, string query)
+    public static DataGridView RefreshReturnGridView(DataGridView dgv, string query, SqlConnection scon)
     {
-        using (var scon = Connections.Connect())
-        {
-            SqlCommand queryGrid = new SqlCommand(query, scon);
-            SqlDataAdapter sAdapt = new SqlDataAdapter(queryGrid);
-            sAdapt.SelectCommand = queryGrid;
-            DataTable dTab = new DataTable();
-            sAdapt.Fill(dTab);
-            BindingSource b = new BindingSource();
-            b.DataSource = dTab;
-            dG.DataSource = b;
-            sAdapt.Update(dTab);
-            scon.Close();
-            return dG;
-        }
+        SqlCommand queryGrid = new SqlCommand(query, scon);
+        SqlDataAdapter sAdapt = new SqlDataAdapter(queryGrid);
+        sAdapt.SelectCommand = queryGrid;
+        DataTable dTab = new DataTable();
+        sAdapt.Fill(dTab);
+        BindingSource b = new BindingSource();
+        b.DataSource = dTab;
+        dgv.DataSource = b;
+        sAdapt.Update(dTab);
+        return dgv;
     }
 }
 
