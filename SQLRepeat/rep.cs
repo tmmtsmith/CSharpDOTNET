@@ -33,3 +33,18 @@ public static bool ExecuteProcedure(string cmdText, SqlParameter[] procParams)
 
     return isYes;
 }
+
+/*
+// Calling
+
+SqlParameter[] procParams = 
+{
+    new SqlParameter("@1", one),
+    new SqlParameter("@2", two),
+    new SqlParameter("@3", three),
+}
+
+ExecuteProcedure("EXEC stp_ProcedureName", procParams);
+
+
+*/
