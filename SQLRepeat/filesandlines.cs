@@ -15,7 +15,6 @@ public static class ReadFiles
         for (int i = 1; i < (cnt + 1); i++ )
         {
             line = readfile.ReadLine();
-            
         }
         return line;
     }
@@ -27,7 +26,6 @@ public static class ReadFiles
         for (int i = 1; i < (lineNo + 1); i++ )
         {
             line = readfile.ReadLine();
-            
         }
         return line;
     }
