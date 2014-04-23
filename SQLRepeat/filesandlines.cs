@@ -10,9 +10,8 @@ public static class ReadFiles
     public static string SelectFirstLine(string file)
     {
         System.IO.StreamReader readfile = new System.IO.StreamReader(file);
-        int cnt = 1;
         string line = "";
-        for (int i = 1; i < (cnt + 1); i++ )
+        for (int i = 1; i < 2; i++ )
         {
             line = readfile.ReadLine();
         }
@@ -30,14 +29,14 @@ public static class ReadFiles
         return line;
     }
 	
-	public static string GetFileName(string file)
+    public static string GetFileName(string file)
     {
 		string f = file.Substring(file.LastIndexOf("\\") + 1);
 		f = f.Substring(0,f.IndexOf("."));
 		return f;
     }
 	
-	public static string GetFileNameWithExtension(string file)
+    public static string GetFileNameWithExtension(string file)
     {
 		string f = file.Substring(file.LastIndexOf("\\") + 1);
 		return f;
