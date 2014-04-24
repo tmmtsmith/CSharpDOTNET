@@ -50,11 +50,11 @@ public static class ReadFiles
 	
 	while ((line = readfile.ReadLine()) != null)
 	{
-	total = line.Split(ch).Length - 1;
-	if (total != validCount)
-	{
-	    cnt++;
-	}
+		total = line.Split(ch).Length - 1;
+		if (total != validCount)
+		{
+		    cnt++;
+		}
 	}
 	return cnt;
     }
