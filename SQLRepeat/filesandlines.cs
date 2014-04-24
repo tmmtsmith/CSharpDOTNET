@@ -42,7 +42,7 @@ public static class ReadFiles
 	return f;
     }
     
-    public static int CountInvalidLines(string file, int validCount, char ch)
+    public static int CountInvalidLines(string file, int validcount, char ch)
     {
 	System.IO.StreamReader readfile = new System.IO.StreamReader(file);
 	int cnt = 0, total;
@@ -51,11 +51,34 @@ public static class ReadFiles
 	while ((line = readfile.ReadLine()) != null)
 	{
 	    total = line.Split(ch).Length - 1;
-	    if (total != validCount)
+	    if (total != validcount)
 	    {
 	        cnt++;
 	    }
 	}
 	return cnt;
+    }
+    
+    public static int CountValidLines(string file, int validcount, char ch)
+    {
+	System.IO.StreamReader readfile = new System.IO.StreamReader(file);
+	int cnt = 0, total;
+	string line;
+	
+	while ((line = readfile.ReadLine()) != null)
+	{
+	    total = line.Split(ch).Length - 1;
+	    if (total == validcount)
+	    {
+	        cnt++;
+	    }
+	}
+	return cnt;
+    }
+    
+    public static double InvalidToValid(string file, int validcount, char ch)
+    {
+        double x = Convert.ToDouble((CountInvalidLines(file, validcount, ch))) / Convert.ToDouble((CountValidLines(file, validcount, ch)));
+        return x;
     }
 }
