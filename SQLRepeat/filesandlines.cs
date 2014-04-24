@@ -15,6 +15,8 @@ public static class ReadFiles
         {
             line = readfile.ReadLine();
         }
+        readfile.Close();
+        readfile.Dispose();
         return line;
     }
 
@@ -26,6 +28,8 @@ public static class ReadFiles
         {
             line = readfile.ReadLine();
         }
+        readfile.Close();
+        readfile.Dispose();
         return line;
     }
 	
@@ -56,6 +60,8 @@ public static class ReadFiles
 	        cnt++;
 	    }
 	}
+        readfile.Close();
+        readfile.Dispose();	
 	return cnt;
     }
     
@@ -73,6 +79,8 @@ public static class ReadFiles
 	        cnt++;
 	    }
 	}
+        readfile.Close();
+        readfile.Dispose();
 	return cnt;
     }
     
