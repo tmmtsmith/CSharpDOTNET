@@ -31,14 +31,31 @@ public static class ReadFiles
 	
     public static string GetFileName(string file)
     {
-		string f = file.Substring(file.LastIndexOf("\\") + 1);
-		f = f.Substring(0,f.IndexOf("."));
-		return f;
+	string f = file.Substring(file.LastIndexOf("\\") + 1);
+	f = f.Substring(0,f.IndexOf("."));
+	return f;
     }
 	
     public static string GetFileNameWithExtension(string file)
     {
-		string f = file.Substring(file.LastIndexOf("\\") + 1);
-		return f;
+	string f = file.Substring(file.LastIndexOf("\\") + 1);
+	return f;
+    }
+    
+    public static int CountInvalidLines(string file, int validCount, char ch)
+    {
+	System.IO.StreamReader readfile = new System.IO.StreamReader(file);
+	int cnt = 0, total;
+	string line;
+	
+	while ((line = readfile.ReadLine()) != null)
+	{
+	total = line.Split(ch).Length - 1;
+	if (total != validCount)
+	{
+	    cnt++;
+	}
+	}
+	return cnt;
     }
 }
