@@ -20,7 +20,6 @@ public static class ReadFiles
         return line;
     }
 
-
     public static string GetLineByNumber(string file, int lineNo)
     {
         System.IO.StreamReader readfile = new System.IO.StreamReader(file);
@@ -32,14 +31,12 @@ public static class ReadFiles
         return line;
     }
 
-
     public static string GetFileName(string file)
     {
         string f = file.Substring(file.LastIndexOf("\\") + 1);
         f = f.Substring(0, f.IndexOf("."));
         return f;
     }
-
 
     public static string GetFileNameWithExtension(string file)
     {
@@ -128,8 +125,15 @@ public static class ReadFiles
             else
             {
                 writeinvalid.WriteLine(line);
+                cnt++;
             }
         }
+        
+        if (cnt > 1)
+        {
+            // Email bad file?
+        }
+        
         readfile.Close();
         readfile.Dispose();
         writevalid.Close();
@@ -139,5 +143,4 @@ public static class ReadFiles
         return cnt;
     }
     
-    // Email bad file?
 }
