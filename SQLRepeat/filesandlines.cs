@@ -4,6 +4,9 @@
 
 */
 
+// Each method is written indepedently of other methods so that developers can use a portion of them without
+// needing to use the others.
+
 public static class ReadFiles
 {
     public static string SelectFirstLine(string file)
@@ -109,7 +112,6 @@ public static class ReadFiles
             System.IO.File.Create(invalidfile);
         }
 
-
         System.IO.StreamReader readfile = new System.IO.StreamReader(file);
         System.IO.StreamWriter writevalid = new System.IO.StreamWriter(validfile);
         System.IO.StreamWriter writeinvalid = new System.IO.StreamWriter(invalidfile);
@@ -136,4 +138,6 @@ public static class ReadFiles
         writeinvalid.Dispose();
         return cnt;
     }
+    
+    // Email bad file?
 }
