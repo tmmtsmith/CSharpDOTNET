@@ -27,4 +27,13 @@ public static class Mathematics
 		avg = (ysum / xsum);
 		return avg;
 	}
+	
+	public static double Average(double[] arr)
+	{
+		// Note that C# includes average already
+		double tot = arr.Sum();
+		int num = arr.Count();
+		return (tot / num);
+	}
 }
+
