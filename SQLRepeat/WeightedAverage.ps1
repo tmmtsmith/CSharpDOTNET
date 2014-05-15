@@ -25,3 +25,17 @@
 }
  
 WeightedAverage -numbs 20,90,25,95,30,85
+
+
+
+Function GetMedian-Odd ([int[]]$numbs)
+{
+    $numbs = $numbs | Sort-Object
+    if ($numbs.Count % 2 -eq 1)
+    {
+        $medianpos = [Math]::Floor($numbs.Count/2)
+        return $numbs[$medianpos]
+    }
+}
+
+GetMedian-Odd 5,7,8,4,6,2,4
