@@ -36,15 +36,15 @@ public static class Mathematics
 		return (tot / num);
 	}
 	
-	// Correct later; VS down
+	//  Correct later; VS down
 	public static double Median(double[] arr)
         {
             arr = Array.Sort(arr,1,2);
-            int rep = ((arr.Count)/2);
+            double rep = ((arr.Count)/2);
             if (arr.Count % 2 == 1)
             {
                 int mpo = System.Math.Floor(rep);
-                return mpo;
+                return arr[mpo];
             }
             else
             {
