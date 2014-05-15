@@ -35,5 +35,24 @@ public static class Mathematics
 		int num = arr.Count();
 		return (tot / num);
 	}
-}
+	
+	// Correct later; VS down
+	public static double Median(double[] arr)
+        {
+            arr = Array.Sort(arr,1,2);
+            int rep = ((arr.Count)/2);
+            if (arr.Count % 2 == 1)
+            {
+                int mpo = System.Math.Floor(rep);
+                return mpo;
+            }
+            else
+            {
+                int x = arr[rep];
+                int y = arr[((arr.Count)/2-1)];
+                double avg = Average(x,y);
+                return avg;
+            }
+        }
 
+}
