@@ -39,20 +39,27 @@ public static class Mathematics
 	//  Correct later; VS down
 	public static double Median(double[] arr)
         {
-            arr = Array.Sort(arr,1,2);
-            double rep = ((arr.Count)/2);
-            if (arr.Count % 2 == 1)
-            {
-                int mpo = System.Math.Floor(rep);
-                return arr[mpo];
-            }
-            else
-            {
-                int x = arr[rep];
-                int y = arr[((arr.Count)/2-1)];
-                double avg = Average(x,y);
-                return avg;
-            }
+        	public static double Median(double[] arr)
+	        {
+	            Array.Sort(arr);
+	            int arrcnt = arr.Count();
+	            double rep = arrcnt / 2.0;
+	            if (arrcnt % 2 == 1)
+	            {
+	                int mpo = Convert.ToInt16(Math.Floor(rep));
+	                return arr[mpo];
+	            }
+	            else
+	            {
+	                int r = Convert.ToInt16(rep);
+	                int rr = r - 1;
+	                double o = arr[(r)];
+	                double e = arr[arrcnt / rr];
+	                double[] a = { o, e };
+	                double med = a.Average();
+	                return med;
+	            }
+	        }
         }
 
 }
