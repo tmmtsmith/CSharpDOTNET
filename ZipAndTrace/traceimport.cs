@@ -41,6 +41,8 @@ namespace TraceImport
                 string temp = "TEMPTABLE";
                 //  Saved Data Table (edit):
                 string main = "MAINTABLE";
+                // Create
+                //string initbld = "SELECT * INTO BuildTable FROM FROM ::fn_trace_gettable('" + folderOne + newLoc + "', default)"
 
                 try
                 {
