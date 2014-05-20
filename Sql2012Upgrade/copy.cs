@@ -9,12 +9,6 @@ using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Smo.Agent;
 using Microsoft.SqlServer.Management.Sdk.Sfc;
 
-// Added references (refer to: http://msdn.microsoft.com/en-us/library/ms162153.aspx)
-// Microsoft.SqlServer.Smo.dll 
-// Microsoft.SqlServer.ConnectionInfo.dll 
-// Microsoft.SqlServer.Management.Sdk.Sfc.dll 
-
-
 namespace SqlJobs
 {
     class Program
@@ -57,10 +51,11 @@ namespace SqlJobs
     
     public static class Connections
     {
-        public static SqlConnection Connect()
+        public static SqlConnection Connect(string server, string database)
         {
-            string server = "SERVER";
-            string database = "OTHERDB";
+            //Manual:
+            //string server = "SERVER";
+            //string database = "OTHERDB";
             SqlConnection scon = new SqlConnection();
             scon.ConnectionString = "integrated security=SSPI;data source=" + server + ";persist security info=False;initial catalog=" + database + "";
             scon.Open();
