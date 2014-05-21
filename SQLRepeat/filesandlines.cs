@@ -17,6 +17,8 @@ public static class ReadFiles
         {
             line = readfile.ReadLine();
         }
+        readfile.Close();
+        readfile.Dipose();
         return line;
     }
 
@@ -28,7 +30,23 @@ public static class ReadFiles
         {
             line = readfile.ReadLine();
         }
+        readfile.Close();
+        readfile.Dispose();
         return line;
+    }
+    
+    public static int GetLastLineNumber(string file)
+    {
+        System.IO.StreamReader readfile = new System.IO.StreamReader(file);
+        string line;
+        int cnt = 0;
+        while ((line = readfile.ReadLine()) != null)
+        {
+            cnt++;
+        }
+        readfile.Close();
+        readfile.Dipose();
+        return cnt;
     }
 
     public static string GetFileName(string file)
@@ -87,8 +105,14 @@ public static class ReadFiles
         double x = Convert.ToDouble((CountInvalidLines(file, validcount, ch))) / Convert.ToDouble((CountValidLines(file, validcount, ch)));
         return x;
     }
+    
+    public static double InvalidCost(double cost, string file, int validcount, char ch)
+    {
+        double x = (InvalidToValid(file, validcount, ch)) * cost);
+        return x;
+    }
 
-    public static int SaveGoodBadLines(string file, int validcount, char ch)
+    public static int OutputInvalidandValidData(string file, int validcount, char ch)
     {
         string loc = file.Substring(0, file.LastIndexOf("\\") + 1);
         string f = file.Substring(file.LastIndexOf("\\") + 1);
@@ -121,19 +145,15 @@ public static class ReadFiles
             if (total == validcount)
             {
                 writevalid.WriteLine(line);
+                writevalid.Flush();
             }
             else
             {
                 writeinvalid.WriteLine(line);
+                writeinvalid.Flush();
                 cnt++;
             }
         }
-        
-        if (cnt > 1)
-        {
-            // Email bad file?
-        }
-        
         readfile.Close();
         readfile.Dispose();
         writevalid.Close();
@@ -142,5 +162,4 @@ public static class ReadFiles
         writeinvalid.Dispose();
         return cnt;
     }
-    
 }
