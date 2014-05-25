@@ -5,7 +5,7 @@
 */
 
 // Each method is written indepedently of other methods so that developers can use a portion of them without
-// needing to use the others.
+// needing to use the others, except where noted.
 
 public static class ReadFiles
 {
@@ -102,12 +102,14 @@ public static class ReadFiles
 
     public static double InvalidToValid(string file, int validcount, char ch)
     {
+        // Dependent
         double x = Convert.ToDouble((CountInvalidLines(file, validcount, ch))) / Convert.ToDouble((CountValidLines(file, validcount, ch)));
         return x;
     }
     
     public static double InvalidCost(double cost, string file, int validcount, char ch)
     {
+        // Dependent
         double x = (InvalidToValid(file, validcount, ch)) * cost);
         return x;
     }
