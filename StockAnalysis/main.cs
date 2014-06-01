@@ -7,6 +7,7 @@ using System.Text;
 
 namespace TestMethods
 {
+    //  Index note: adjclose may not reflect actual adjustments
     class Program
     {
         static void Main(string[] args)
