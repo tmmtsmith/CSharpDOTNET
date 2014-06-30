@@ -1,5 +1,7 @@
 /*
 
+-- 3 vals p wk
+
 CREATE TABLE PAEMs(
 	WeekID SMALLINT IDENTITY(1,1),
 	Desired INT,
