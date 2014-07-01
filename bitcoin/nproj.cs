@@ -1,6 +1,7 @@
 /*
 
--- 3 vals p wk
+-- Q: 3 vals p wk
+-- sqlite
 
 CREATE TABLE PAEMs(
 	WeekID SMALLINT IDENTITY(1,1),
