@@ -52,6 +52,52 @@ public static class SQLTools
         sAdapt.Update(dTab);
         return dgv;
     }
+    
+    public static DataTable DataTableFromQuery(string q, SqlConnection scon)
+    {
+    	SqlCommand cmd = new SqlCommand(q, scon);
+    	SqlDataReader dataread;
+    	DataTable dt = new DataTable();
+    
+    	//Object[] vls = { };
+    
+    	try
+    	{
+    		scon.Open()
+    		dataread = cmd.ExecuteReader();
+    
+    		foreach (DataRow row in dataread.GetSchemaTable().Rows)
+    		{
+    			dt.Columns.Add(row["ColumnName"].ToString(), System.Type.GetType(row["DataType"].ToString()));
+    		}
+    
+    		while (dataread.Read())
+    		{
+    			DataRow row = dt.NewRow();
+    
+    			for (int i = 0; i < dataread.FieldCount; i++)
+    			{
+    				row[i] = dataread.GetValue(i);
+    			}
+    
+    			dt.Rows.Add(row);
+    		}
+    
+    		dataread.Close();
+    	}
+    	catch (Exception ex)
+    	{
+    		throw ex;
+    	}
+    	finally
+    	{
+    		cmd.Dispose();
+    		scon.Close()
+    		scon.Dispose()
+    	}
+    
+    	return dt;
+    }
 }
 
 
