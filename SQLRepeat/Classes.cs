@@ -59,8 +59,6 @@ public static class SQLTools
     	SqlDataReader dataread;
     	DataTable dt = new DataTable();
     
-    	//Object[] vls = { };
-    
     	try
     	{
     		scon.Open()
@@ -97,6 +95,45 @@ public static class SQLTools
     	}
     
     	return dt;
+    }
+    
+    public static MultipleCommands(string[] cmds, SqlConnection scon)
+    {
+    	SqlCommand cmd = new SqlCommand();
+    	SqlCommand.Connection = scon;
+    	
+    	try
+    	{
+    		foreach (string c in cmds)
+    		{
+    			try
+    			{
+    				scon.Open()
+    				cmd.CommandText = c;
+    				cmd.ExecuteNonQuery();
+    				cmd.CommandText = "";
+    			}
+    			catch (Exception ex)
+    			{
+    				throw ex;
+    			}
+    			finally
+    			{
+    				scon.Close();
+    				scon.Dispose();
+    			}
+    		}
+    		return 1;
+    	}
+    	catch (Exception ex)
+    	{
+    		throw ex;
+    		return 0;
+    	}
+    	finally
+    	{
+    		cmd.Dispose()
+    	}
     }
 }
 
