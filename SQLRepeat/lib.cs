@@ -8,6 +8,8 @@ public static class StringLibrary
     
     public static readonly string nl = System.Environment.NewLine;
     
+    public static readonly string mach = System.Environment.MachineName.ToUpper().Trim();
+    
     // Count first
     // CR? 
     // LF?
