@@ -38,6 +38,18 @@ public static class SQLTools
         
         return 1;
     }
+    
+    public static DataTable exportToDataTable(string srv, string db, string query)
+    {
+        DataTable qdt = new DataTable();
+        using (var scon = Connections.Connect(srv, db))
+        {
+            SqlCommand qcmd = new SqlCommand(query, scon);
+            SqlDataAdapter qda = new SqlDataAdapter(qcmd);
+            qda.Fill(qdt);
+            return qdt;
+        }
+    }
 
     public static DataGridView RefreshReturnGridView(DataGridView dgv, string query, SqlConnection scon)
     {
