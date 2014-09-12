@@ -109,6 +109,18 @@ public static class SQLTools
     	return dt;
     }
     
+    public static bool BulkCopy(DataTable sourceTable, string sDestTable)
+    {
+        // mpp mat.
+        using (var scon = Connections.Connect())
+        {
+            SqlBulkCopy bc = new SqlBulkCopy(scon);
+            bc.DestinationTableName = sDestTable;
+            bc.WriteToServer(sourceTable);
+            return true;
+        }
+    }
+    
     public static MultipleCommands(string[] cmds, SqlConnection scon)
     {
     	SqlCommand cmd = new SqlCommand();
