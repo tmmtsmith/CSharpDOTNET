@@ -9,8 +9,9 @@ VALUES ('John','XY872L985RYR')
 	, ('Sarah','764YFXLPQZC')
 	
 
--- After creating the table, wait anywhere from 1 to 3 days, then ...
+-- After creating the table, wait 3 business days, then ...
 
 DROP TABLE AffluentCustomers
 
 -- Oh noez!!!  I need my table.
+-- This is so basic of a task, and yet it's amazing how it can be overlooked.
